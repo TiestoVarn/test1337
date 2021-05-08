@@ -23,4 +23,4 @@ node('master') {
   stage('Deploy App') {
         kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "kubeconfig")
   }
-}
+})
