@@ -2,10 +2,10 @@ podTemplate(
     name: 'jnlp-docker',
     label: 'jnlp-docker',
     containers: [
-        containerTemplate(name: 'infra-docker', image: 'joao29a:jnlp-slave-alpine-docker')
+        containerTemplate(name: 'infra-docker', image: 'joao29a:jnlp-slave-alpine-docker'),
     ]
 
-node('master'){    
+node('master') {    
   stage('Checkout Source') {
     container('infra-docker') {
     git 'https://github.com/justmeandopensource/playjenkins.git'
