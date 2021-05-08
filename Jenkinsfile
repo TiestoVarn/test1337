@@ -60,7 +60,7 @@ pipeline {
       steps{
         script {
           sh "ls && pwd"
-          dockerImage = docker.build("TiestoVarn/test1337") + ":$BUILD_NUMBER"
+          dockerImage = docker.build + ":$BUILD_NUMBER"
         }
       }
     }
