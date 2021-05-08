@@ -60,7 +60,7 @@ pipeline {
       steps{
         script {
           sh "ls && pwd"
-          dockerImage = docker.build + ":$BUILD_NUMBER"
+          dockerImage = docker.build
         }
       }
     }
