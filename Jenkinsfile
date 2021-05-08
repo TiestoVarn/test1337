@@ -56,16 +56,10 @@ pipeline {
 
   stages {
 
-    stage('Checkout Source') {
-      steps {
-        git 'https://github.com/justmeandopensource/playjenkins.git'
-      }
-    }
-
     stage('Build image') {
       steps{
         script {
-          app = docker.build("tiestovarn/myapp") + ":$BUILD_NUMBER"
+          app = docker.build("TiestoVarn/test1337") + ":$BUILD_NUMBER"
         }
       }
     }
