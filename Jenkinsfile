@@ -59,7 +59,8 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-          app = docker.build("TiestoVarn/test1337") + ":$BUILD_NUMBER"
+          sh "ls && pwd"
+          dockerImage = docker.build("TiestoVarn/test1337") + ":$BUILD_NUMBER"
         }
       }
     }
@@ -68,8 +69,8 @@ pipeline {
       steps{
         script {
           docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {            
-          app.push("${env.BUILD_NUMBER}")            
-          app.push("latest") 
+          dockerImage("${env.BUILD_NUMBER}")            
+          dockerImage("latest") 
           }
         }
       }
