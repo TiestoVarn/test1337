@@ -49,12 +49,6 @@
 //            }
 //         }
 
-podTemplate(
-    name: 'jnlp-docker',
-    label: 'jnlp-docker',
-    containers: [
-        containerTemplate(name: 'infra-docker', image: 'joao29a:jnlp-slave-alpine-docker')
-    ]
 
 pipeline {
 
