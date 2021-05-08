@@ -5,7 +5,7 @@ podTemplate(
         containerTemplate(name: 'infra-docker', image: 'joao29a:jnlp-slave-alpine-docker')
     ]
 
-node('jnlp-docker'){    
+node('master'){    
   stage('Checkout Source') {
     git 'https://github.com/justmeandopensource/playjenkins.git'
     }
