@@ -7,8 +7,10 @@ podTemplate(
 
 node('master'){    
   stage('Checkout Source') {
+    container('infra-docker') {
     git 'https://github.com/justmeandopensource/playjenkins.git'
     }
+  }
   stage('Build image') {
         app = docker.build("tiestovarn/myapp") + ":$BUILD_NUMBER"
   }
