@@ -3,7 +3,7 @@ podTemplate(
     label: 'jnlp-docker',
     containers: [
         containerTemplate(name: 'infra-docker', image: 'joao29a:jnlp-slave-alpine-docker'),
-    ]
+    ],
 
 node('master') {    
   stage('Checkout Source') {
