@@ -50,7 +50,11 @@
 //         }
 
 
-pipeline {
+pipeline {  
+  environment {
+    registry = "tiestovarn/app"
+    registryCredential = 'dockerhub'
+  }  
 
   agent any
 
@@ -60,7 +64,7 @@ pipeline {
       steps{
         script {
           sh "ls && pwd"
-          dockerImage = docker.build
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
       }
     }
