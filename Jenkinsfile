@@ -51,10 +51,6 @@
 
 
 pipeline {  
-  environment {
-    registry = "tiestovarn/app"
-    registryCredential = 'dockerhub'
-  }  
 
   agent any
 
@@ -63,31 +59,34 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-          sh "ls && pwd"
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+        sh 'docker version'
+        sh 'docker build -t docker .'
+        sh 'docker image list'
+        sh 'docker tag docker tiestovarn/docker:docker'
         }
       }
     }
-
-    stage('Push Image') {
-      steps{
-        script {
-          docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {            
-          dockerImage("${env.BUILD_NUMBER}")            
-          dockerImage("latest") 
-          }
-        }
-      }
-    }
-
-    stage('Deploy App') {
-      steps {
-        script {
-          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "kubeconfig")
-        }
-      }
-    }
-
   }
-
 }
+//     stage('Push Image') {
+//       steps{
+//         script {
+//           docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {            
+//           dockerImage("${env.BUILD_NUMBER}")            
+//           dockerImage("latest") 
+//           }
+//         }
+//       }
+//     }
+
+//     stage('Deploy App') {
+//       steps {
+//         script {
+//           kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "kubeconfig")
+//         }
+//       }
+//     }
+
+//   }
+
+// }
