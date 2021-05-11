@@ -50,21 +50,14 @@
 //         }
 
 
-pipeline {  
 
-  agent any
-
+node {
   stages {
-
     stage('Build image') {
-      steps{
-        script {
         sh 'docker version'
         sh 'docker build -t docker .'
         sh 'docker image list'
         sh 'docker tag docker tiestovarn/docker:docker'
-        }
-      }
     }
   }
 }
