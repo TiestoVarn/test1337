@@ -55,6 +55,7 @@ pipeline {
     stages {
       stage('Build image') {
         steps{
+            sh 'docker'
             sh 'docker version'
             sh 'docker build -t docker .'
             sh 'docker image list'
