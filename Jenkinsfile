@@ -18,7 +18,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          dockerImage = docker.build --privileged -v /var/run/docker.sock:/var/run/docker.sock registry + ":$BUILD_NUMBER"
         }
       }
     }
