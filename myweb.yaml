@@ -16,7 +16,7 @@ spec:
         app: myweb
     spec:
       containers:
-      - image: tiestovarn/docker:latest
+      - image: 172.100.100.100:5000/justme/myweb:1
         imagePullPolicy: Always
         name: myweb
 
