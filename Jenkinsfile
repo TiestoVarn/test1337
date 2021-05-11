@@ -52,13 +52,11 @@
 
 
 node {
-  stages {
     stage('Build image') {
         sh 'docker version'
         sh 'docker build -t docker .'
         sh 'docker image list'
         sh 'docker tag docker tiestovarn/docker:docker'
-    }
   }
 }
 //     stage('Push Image') {
