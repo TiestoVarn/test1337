@@ -59,7 +59,7 @@ node {
         sh 'docker tag diplom tiestovarn/docker:diplom'
     }
 
-    withCredentials([string(credentialsId: 'DockerHubCreeds', variable: 'PASSWORD')]) {
+    withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
         sh 'docker login -u tiestovarn -p $PASSWORD'
     }
 
