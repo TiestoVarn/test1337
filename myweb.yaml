@@ -1,6 +1,5 @@
 ---
 apiVersion: apps/v1
-apiVersion: v1
 kind: Deployment
 metadata:
   labels:
@@ -17,7 +16,7 @@ spec:
         app: myweb
     spec:
       containers:
-      - image: joao29a/jnlp-slave-alpine-docker
+      - image: tiestovarn/docker
         imagePullPolicy: Always
         name: myweb
 ---
