@@ -66,7 +66,7 @@ node {
     stage("Push Image to Docker Hub"){
         sh 'docker push  tiestovarn/docker:diplom'
     }
-    stage('Deploy App') {
+    stage("Deploy App") {
         sh 'kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")'
         }
 
