@@ -17,12 +17,12 @@ pipeline {
         }
       }
     }
-    stage("Docker Login"){
+    stage('Docker Login'){
             withCredentials([string(credentialsId: 'DockerHubCreeds', variable: 'PASSWORD')]) {
                 sh 'docker login -u tiestovarn -p $PASSWORD'
             }
         } 
-    stage("Push Image to Docker Hub"){
+    stage('Push Image to Docker Hub'){
             sh 'docker push tiestovarn/docker:latest'
         }
 
