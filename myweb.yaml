@@ -17,7 +17,7 @@ spec:
         app: myweb
     spec:
       containers:
-      - image: tiestovarn/docker:latest
+      - image: joao29a/jnlp-slave-alpine-docker
         imagePullPolicy: Always
         name: myweb
 ---
