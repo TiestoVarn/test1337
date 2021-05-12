@@ -17,17 +17,14 @@ pipeline {
         }
       }
     }
-
-    stage('Push Image') {
-      steps{
-        script {
-          docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {            
-          app.push("${env.BUILD_NUMBER}")            
-          app.push("latest") 
-          }
+    stage("Docker Login"){
+            withCredentials([string(credentialsId: 'DockerHubCreeds', variable: 'PASSWORD')]) {
+                sh 'docker login -u tiestovarn -p $PASSWORD'
+            }
+        } 
+    stage("Push Image to Docker Hub"){
+            sh 'docker push tiestovarn/docker:latest'
         }
-      }
-    }
 
     stage('Deploy App') {
       steps {
