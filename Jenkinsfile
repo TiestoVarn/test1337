@@ -67,7 +67,7 @@ node {
         sh 'docker push  tiestovarn/docker:diplom'
     }
     stage("Deploy App"){
-        sh "ls -ls && pwd"
+        sh "ls -la && pwd"
         sh kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
         }
 
