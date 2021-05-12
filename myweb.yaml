@@ -15,6 +15,7 @@ spec:
       labels:
         app: myweb
     spec:
+      serviceAccountName: jenkins
       containers:
       - image: tiestovarn/docker:latest
         imagePullPolicy: Always
