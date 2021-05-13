@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    registry = "172.100.100.100:5000/justme/myweb"
+    registry = "172.200.200.200:5000/justme/myweb"
     dockerImage = ""
   }
 
@@ -36,7 +36,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
+          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig1337")
         }
       }
     }
