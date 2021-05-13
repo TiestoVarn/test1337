@@ -47,7 +47,6 @@
 // }
 node {
     stage("Docker build"){
-        sh 'docker version'
         sh 'docker build -t diplom .'
         sh 'docker image list'
         sh 'docker tag diplom tiestovarn/docker:diplom'
