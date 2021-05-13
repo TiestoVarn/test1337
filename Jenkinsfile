@@ -46,12 +46,6 @@
 
 // }
 node {
-
-    stage("Git Clone"){
-
-        git credentialsId: 'GitHubCreeds', url: 'https://github.com/TiestoVarn/test1337'
-    }
-
     stage("Docker build"){
         sh 'docker version'
         sh 'docker build -t diplom .'
