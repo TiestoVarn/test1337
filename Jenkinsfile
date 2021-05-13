@@ -46,15 +46,17 @@
 
 // }
 node {
+    
+        withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
+        sh 'docker login -u tiestovarn -p $PASSWORD'
+    }
+    
     stage("Docker build"){
         sh 'docker build -t diplom .'
         sh 'docker image list'
         sh 'docker tag diplom tiestovarn/docker:diplom'
     }
 
-    withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
-        sh 'docker login -u tiestovarn -p $PASSWORD'
-    }
 
     stage("Push Image to Docker Hub"){
         sh 'docker push  tiestovarn/docker:diplom'
