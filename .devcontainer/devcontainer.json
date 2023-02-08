@@ -24,7 +24,7 @@
 		"pivotal.vscode-boot-dev-pack",
 		"mhutchie.git-graph"
 	],
-	"forwardPorts": [8080],
+	"forwardPorts": [1337],
 	"settings": {
 		"java.import.gradle.enabled": false,
 		"java.server.launchMode": "Standard"
