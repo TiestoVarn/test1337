@@ -1,7 +1,7 @@
 pipeline {
     agent any
     options {
-        // Timeout counter starts AFTER agent is allocated
+        // Timeout counter starts AFTER agent is allocated chummybunny
         timeout(time: 5000, unit: 'SECONDS')
     }
     stages {
